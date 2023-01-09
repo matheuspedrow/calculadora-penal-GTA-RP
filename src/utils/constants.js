@@ -1,4 +1,4 @@
-export const ARTIGOS_A = [
+export const crimes = [
   {
     titulo: 'Crimes de Classe 1',
     artigos: [
@@ -144,9 +144,6 @@ export const ARTIGOS_A = [
       },      
     ],
   },
-];
-
-export const ARTIGOS_B = [
   {
     titulo: 'Crimes de Classe 2',
     artigos: [
@@ -231,10 +228,7 @@ export const ARTIGOS_B = [
         multa: 100000
       },
     ]
-  }
-];
-
-export const ARTIGOS_C = [
+  },  
   {
     titulo: 'Crimes de Classe 3',
     artigos: [
@@ -274,10 +268,7 @@ export const ARTIGOS_C = [
         multa: 500000
       },
     ]
-  }
-];
-
-export const ARTIGOS_D = [
+  }, 
   {
     titulo: 'Infrações de trânsito',
     artigos: [
@@ -307,5 +298,7 @@ export const ARTIGOS_D = [
         multa: 50000
       },
     ]
-  }
+  }  
 ];
+
+
