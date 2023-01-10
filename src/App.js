@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Checkbox, Input, Button } from 'antd';
 import TextInputs from './components/TextInputs';
+import InputName from './components/InputName';
+import InputId from './components/InputId';
 import { crimes } from './utils/constants';
 import { alertMessage } from './utils/alert';
 import "./App.css";
@@ -24,10 +26,6 @@ export default class App extends Component {
     }));
   };
 
-  copyContent = () => {
-
-  }
-
   render() {
     const { totalSentence, totalFee, markedSentences } = this.state;
     const maxSentence = 200;
@@ -37,6 +35,11 @@ export default class App extends Component {
     });
     return (
       <>
+        <h1 className="title">Informações do Preso</h1>
+      <div className="main-content">
+        <InputName />
+        <InputId />
+      </div>
         <div className="main-content">
           {crimes.map(({ titulo, artigos }) => (
             <div key={ titulo }>
@@ -67,7 +70,7 @@ export default class App extends Component {
           />     
             <TextInputs
               value={totalSentence > maxSentence 
-                ? `${maxSentence} meses` : `${totalSentence} meses`}
+                ? `${maxSentence} Meses` : `${totalSentence} Meses`}
               title="Pena:"
               icon="⚖️"
             />
@@ -81,6 +84,15 @@ export default class App extends Component {
          <Button
           style={{
             margin: '30px',
+            width: '200px',
+            height: '50px',
+            fontSize: '20px',
+            fontWeight: 'bold',
+            borderRadius: '10px',
+            backgroundColor: '#1E90FF',
+            color: '#fff',
+            border: 'none',
+            cursor: 'pointer',
           }}
           type="primary" 
           size="large"
@@ -89,10 +101,9 @@ export default class App extends Component {
             alertMessage();
           }}
          >
-          Primary
+          Copiar Dados
         </Button>         
         </div>
-     
       </>
     )
   }

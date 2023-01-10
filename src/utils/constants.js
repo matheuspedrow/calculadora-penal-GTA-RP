@@ -33,8 +33,23 @@ export const crimes = [
         multa: 90000
       },
       {
-        nome: 'Art. 07 - Desacato',
-        pena: 30,
+        nome: 'Art. 07 - Desacato 1',
+        pena: 35,
+        multa: 200000
+      },
+      {
+        nome: 'Art. 07.1 - Desacato 2',
+        pena: 5,
+        multa: 200000
+      },
+      {
+        nome: 'Art. 07.2 - Desacato 3',
+        pena: 5,
+        multa: 200000
+      },
+      {
+        nome: 'Art. 07.3 - Desacato 4',
+        pena: 5,
         multa: 200000
       },
       {
