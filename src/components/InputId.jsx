@@ -3,15 +3,15 @@ import { Input } from 'antd';
 
 export default class InputData extends Component {
 	render() {
+		const { handleChange } = this.props;
 		return (
 			<>
+			<h2 className='prisoner-info'>RG: </h2>
 				<Input
 					style={
 						{
 							width: 300,
-							borderRadius: '5px',
-							border: '3px solid #e8e8e8',
-							padding: '0 10px',
+							height: 40,
 							fontSize: '24px',
 							marginBottom: '10px'
 						}
@@ -19,6 +19,9 @@ export default class InputData extends Component {
           type="number"
 					className="input-data"
 					placeholder="Rg do preso" 
+					min="0"
+					name="id"
+					onChange={ handleChange }
 				/>
 			</>
 		);

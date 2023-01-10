@@ -11,17 +11,15 @@ const { TextArea } = Input;
 
 export default class App extends Component {
   state = {
+    name: '',
+    id: 0,
     totalSentence: 0,
     totalFee: 0,
     markedSentences: []
   };
 
-  removeSentence = (sentenceArray, sentence) => {
-    const sentenceIndex = sentenceArray.indexOf(sentence);
-    if (sentenceIndex < 0) return sentenceArray;
-    console.log(sentenceArray, sentenceIndex);
-    return sentenceArray.splice(sentenceIndex, 1);
-  }
+  removeSentence = (sentenceArray, sentence) =>
+    sentenceArray.filter((currentSentence) => currentSentence !== sentence);
 
   calculateSentence = ({ target }) => {
     let { value, checked } = target;
@@ -34,23 +32,47 @@ export default class App extends Component {
         ? this.removeSentence(prevState.markedSentences, value[2]) 
         : [...prevState.markedSentences, value[2]]
     }), () => {
-
     });
   };
 
+  handleChange = ({ target }) => {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  arrayToString = (array) => {
+    return array.sort().join('\n');
+  };
+
   render() {
-    const { totalSentence, totalFee, markedSentences } = this.state;
+    const { totalSentence, totalFee, markedSentences, name, id } = this.state;
     const maxSentence = 200;
+    const sentences = this.arrayToString(markedSentences)
     const currency = totalFee.toLocaleString('pt-BR', {
       style: 'currency',
       currency: 'BRL',
     });
+    const clipboard = `# INFORMAÇÕES DO PRESO:
+* NOME: ${name}
+* RG: ${id}\n
+# PENA TOTAL: ${totalSentence} meses
+# MULTA: ${currency}\n
+# CRIMES:
+${sentences}
+`;
+
     return (
       <>
         <h1 className="title">Informações do Preso</h1>
-        <div className="main-content">
-          <InputName />
-          <InputId />
+        <div className="prisoner-content">
+          <div>
+            <InputName handleChange={ this.handleChange }/>
+          </div>
+          <div>
+            <InputId handleChange={ this.handleChange }/>
+          </div>          
         </div>
         <div className="main-content">
           <div className="article-main-box">
@@ -107,7 +129,7 @@ export default class App extends Component {
           <div className='sentence-clipboard'>
             <TextArea 
               className='sentence-input'
-              value={ markedSentences }
+              value={ sentences }
               autoSize={ { minRows: 6, maxRows: 6 } }
             /> 
           <Button
@@ -115,7 +137,7 @@ export default class App extends Component {
             type="primary" 
             size="large"
             onClick={() => {
-              navigator.clipboard.writeText(markedSentences);
+              navigator.clipboard.writeText(clipboard);
               alertMessage();
             }}
           >

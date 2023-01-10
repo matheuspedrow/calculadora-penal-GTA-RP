@@ -163,47 +163,47 @@ export const crimes = [
     titulo: 'Crimes de Classe 2',
     artigos: [
       {
-        nome: 'Art. 1 - Extorsão',
+        nome: 'Art. 01 - Extorsão',
         pena: 10,
         multa: 50000
       },
       {
-        nome: 'Art. 2 - Invasão',
+        nome: 'Art. 02 - Invasão',
         pena: 5,
         multa: 20500
       },
       {
-        nome: 'Art. 3 - Assalto a Mao Armada',
+        nome: 'Art. 03 - Assalto a Mao Armada',
         pena: 10,
         multa: 50000
       },
       {
-        nome: 'Art. 4 - Lesão Corporal',
+        nome: 'Art. 04 - Lesão Corporal',
         pena: 25,
         multa: 50000
       },
       {
-        nome: 'Art. 5 - Lesão Corporal Culposa',
+        nome: 'Art. 05 - Lesão Corporal Culposa',
         pena: 10,
         multa: 30000
       },
       {
-        nome: 'Art. 6 - Porte de Arma Ilegal Arma Leve',
+        nome: 'Art. 06 - Porte de Arma Ilegal Arma Leve',
         pena: 15,
         multa: 100000
       },
       {
-        nome: 'Art. 7 - Receptação',
+        nome: 'Art. 07 - Receptação',
         pena: 10,
         multa: 50000
       },
       {
-        nome: 'Art. 8 - Receptação Culposa',
+        nome: 'Art. 08 - Receptação Culposa',
         pena: 5,
         multa: 20500
       },
       {
-        nome: 'Art. 9 - Receptação',
+        nome: 'Art. 09 - Receptação',
         pena: 10,
         multa: 50000
       },
@@ -248,37 +248,37 @@ export const crimes = [
     titulo: 'Crimes de Classe 3',
     artigos: [
       {
-        nome: 'Art. 1 - Corrupção',
+        nome: 'Art. 01 - Corrupção',
         pena: 100,
         multa: 300000
       },
       {
-        nome: 'Art. 2 - Tentativa / Homicídio',
+        nome: 'Art. 02 - Tentativa / Homicídio',
         pena: 70,
         multa: 150000
       },
       {
-        nome: 'Art. 3 - Tentativa / Homicidio Oficial',
+        nome: 'Art. 03 - Tentativa / Homicidio Oficial',
         pena: 80,
         multa: 200000
       },
       {
-        nome: 'Art. 4 - Homicídio Qualificado',
+        nome: 'Art. 04 - Homicídio Qualificado',
         pena: 100,
         multa: 300000
       },
       {
-        nome: 'Art. 5 - Sequestro',
+        nome: 'Art. 05 - Sequestro',
         pena: 30,
         multa: 100000
       },
       {
-        nome: 'Art. 6 - Porte de Arma Ilegal Pesada',
+        nome: 'Art. 06 - Porte de Arma Ilegal Pesada',
         pena: 30,
         multa: 200000
       },
       {
-        nome: 'Art. 7 - Tráfico de Armas Pesadas',
+        nome: 'Art. 07 - Tráfico de Armas Pesadas',
         pena: 50,
         multa: 500000
       },
@@ -288,27 +288,27 @@ export const crimes = [
     titulo: 'Infrações de trânsito',
     artigos: [
       {
-        nome: 'Art. 1 - Alta Velocidade',
+        nome: 'Art. 01 - Alta Velocidade',
         pena: 0,
         multa: 20500
       },
       {
-        nome: 'Art. 2 - Direção Perigosa',
+        nome: 'Art. 02 - Direção Perigosa',
         pena: 0,
         multa: 20500
       },
       {
-        nome: 'Art. 3 - Destruição de Patrimônio Público ou Privado',
+        nome: 'Art. 03 - Destruição de Patrimônio Público ou Privado',
         pena: 0,
         multa: 20500
       },
       {
-        nome: 'Art. 4 - Estacionamento Proibido',
+        nome: 'Art. 04 - Estacionamento Proibido',
         pena: 0,
         multa: 20500
       },
       {
-        nome: 'Art. 5 - Transitar em Faixa Oposta',
+        nome: 'Art. 05 - Transitar em Faixa Oposta',
         pena: 0,
         multa: 50000
       },

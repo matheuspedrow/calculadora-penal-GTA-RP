@@ -3,21 +3,26 @@ import { Input } from 'antd';
 
 export default class InputData extends Component {
 	render() {
+			const { handleChange } = this.props;
+		
 		return (
 			<>
+				<h2 className='prisoner-info'>Nome: </h2>
 				<Input
 					style={
 						{
 							width: 300,
-							borderRadius: '5px',
-							border: '3px solid #e8e8e8',
+							height: 40,
 							padding: '0 10px',
 							fontSize: '24px',
 							marginBottom: '10px'
+							
 						}
 					}
 					className="input-data"
-					placeholder="Nome do preso" 
+					placeholder="Nome do preso"
+					onChange={ handleChange }
+					name="name"
 				/>
 			</>
 		);
