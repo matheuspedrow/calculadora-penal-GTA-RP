@@ -8,7 +8,6 @@
 .main-content {
   display: flex;
   justify-content: center;
-  gap: 50px;
 }
 
 .text-content {
@@ -24,7 +23,17 @@
   margin-top: 30px;
 }
 
+.calculator-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .sentence-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-weight: 800;
   font-size: 20px;
   background-color: rgba(128, 128, 128, 0.393);
@@ -37,4 +46,23 @@
   width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.article-main-box {
+  border: 1px solid rgba(116, 112, 112, 0.376);
+  padding: 20px;
+  border-radius: 20px;
+  width: 30vw;
+}
+
+
+.art-title {
+  text-align: center;
+}
+
+.sentence-clipboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
 }

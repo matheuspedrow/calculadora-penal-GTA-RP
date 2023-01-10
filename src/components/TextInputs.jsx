@@ -12,12 +12,14 @@ export default class TextInputs extends Component {
 				<Input
 					style={
 						{
-							width: 300,
-							borderRadius: '5px',
-							border: '3px solid #e8e8e8',
+							width: 400,
+							height: 60,
+							borderRadius: '10px',
+							border: '3px solid #d4d1c9',
 							padding: '0 10px',
-							fontSize: '24px',
-							marginBottom: '20px'
+							fontSize: '30px',
+							marginBottom: '20px',
+							textAlign: 'center',
 						}
 					}
 					className="text-content"
