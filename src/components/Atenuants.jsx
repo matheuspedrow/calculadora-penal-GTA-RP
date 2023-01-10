@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { Checkbox } from 'antd';
+import { atenuants } from '../utils/constants';
 
-export default class Articles extends Component {
+export default class Atenuants extends Component {
 	render() {
-		const { titulo, artigos, handleChange } = this.props;
+		const { titulo, artigos } = atenuants;
+		const { handleChange } = this.props;
 		return (
 			<>
 				<div>
 					<h1 className="art-title">{titulo}</h1>
-					{artigos.map(({ nome, pena, multa }) => (
+					{artigos.map(({ nome, reduction }, index) => (
 						<div key={ nome }>
 							<Checkbox 
 								style={{
@@ -16,7 +18,7 @@ export default class Articles extends Component {
 									fontSize: 17,
 								}}
 								onChange={ handleChange } 
-								value ={[pena, multa, nome]}
+								value ={[nome, reduction]}
 							>
 								{nome}
 							</Checkbox>               

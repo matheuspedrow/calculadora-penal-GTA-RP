@@ -316,28 +316,26 @@ export const crimes = [
   }  
 ];
 
-export const atenuants = [
-  {
-    titulo: 'Art. 01 - Arrependimento',
+export const atenuants = {
+    titulo: 'Atenuantes',
     artigos: [
       {
-        nome: 'Confissão',
+        nome: 'Art. 01 - Confissão',
         reduction: 0.1,
       },
       {
-        nome: 'Advogado Presente',
+        nome: 'Art. 02 - Advogado Presente',
         reduction: 0.2,
       },
       {
-        nome: 'Réu Primário',
+        nome: 'Art. 03 - Réu Primário',
         reduction: 0.5,
       },
       {
-        nome: 'Legitima Defesa',
+        nome: 'Art. 04 - Legitima Defesa',
         reduction: 0.2,
       }
     ]
-  },
-];
+};
 
 

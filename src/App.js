@@ -4,6 +4,7 @@ import TextInputs from './components/TextInputs';
 import InputName from './components/InputName';
 import InputId from './components/InputId';
 import Articles from './components/Articles';
+import Atenuants from './components/Atenuants';
 import { crimes } from './utils/constants';
 import { alertMessage } from './utils/alert';
 import "./App.css";
@@ -15,7 +16,8 @@ export default class App extends Component {
     id: 0,
     totalSentence: 0,
     totalFee: 0,
-    markedSentences: []
+    atenuantFee: 1,
+    markedSentences: [],
   };
 
   removeSentence = (sentenceArray, sentence) =>
@@ -42,13 +44,25 @@ export default class App extends Component {
     });
   };
 
+  handleAtenuants = ({ target }) => {
+    const { value, checked } = target;
+    this.setState((prevState) => ({
+      atenuantFee: !checked   
+        ? prevState.atenuantFee + value[1] : prevState.atenuantFee - value[1],
+    }));
+  }
+
   arrayToString = (array) => {
     return array.sort().join('\n');
   };
 
   render() {
-    const { totalSentence, totalFee, markedSentences, name, id } = this.state;
+    const { totalSentence, totalFee, markedSentences, name, id, atenuantFee } = this.state;
     const maxSentence = 200;
+    let sentenceCalculated = totalSentence >= maxSentence 
+    ? Math.ceil(maxSentence * atenuantFee) 
+    : Math.ceil(totalSentence * atenuantFee);
+    sentenceCalculated = sentenceCalculated < 0 ? 0 : sentenceCalculated;
     const sentences = this.arrayToString(markedSentences)
     const currency = totalFee.toLocaleString('pt-BR', {
       style: 'currency',
@@ -57,7 +71,7 @@ export default class App extends Component {
     const clipboard = `# INFORMAÇÕES DO PRESO:
 * NOME: ${name}
 * RG: ${id}\n
-# PENA TOTAL: ${totalSentence} meses
+# PENA TOTAL: ${sentenceCalculated} meses
 # MULTA: ${currency}\n
 # CRIMES:
 ${sentences}
@@ -105,6 +119,7 @@ ${sentences}
               artigos={ crimes[3].artigos }
               handleChange={ this.calculateSentence }
             />
+            <Atenuants handleChange={ this.handleAtenuants }/>
           </div>
           <div className="article-main-box">
             <div className="calculator-box">
@@ -120,8 +135,7 @@ ${sentences}
               icon="💸"
             />     
               <TextInputs
-                value={totalSentence > maxSentence 
-                  ? `${maxSentence} Meses` : `${totalSentence} Meses`}
+                value={`${sentenceCalculated} Meses`}
                 title="Pena"
                 icon="⚖️"
               />
