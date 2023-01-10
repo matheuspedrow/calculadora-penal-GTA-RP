@@ -18,10 +18,14 @@ export default class App extends Component {
     totalFee: 0,
     atenuantFee: 1,
     markedSentences: [],
+    markedAtenuants: []
   };
 
   removeSentence = (sentenceArray, sentence) =>
     sentenceArray.filter((currentSentence) => currentSentence !== sentence);
+
+  removeAtenuant = (removeAtenuant, atenuant) =>
+    removeAtenuant.filter((currentAtenuant) => currentAtenuant !== atenuant);
 
   calculateSentence = ({ target }) => {
     let { value, checked } = target;
@@ -49,6 +53,9 @@ export default class App extends Component {
     this.setState((prevState) => ({
       atenuantFee: !checked   
         ? prevState.atenuantFee + value[1] : prevState.atenuantFee - value[1],
+      markedAtenuants: !checked
+        ? this.removeAtenuant(prevState.markedAtenuants, value[0])
+        : [...prevState.markedAtenuants, value[0]]
     }));
   }
 
@@ -56,13 +63,22 @@ export default class App extends Component {
     return array.sort().join('\n');
   };
 
+  showAtenuants = () => {
+    const { markedAtenuants } = this.state;
+    let atenuantString = "# ATENUANTES:"
+    for (let atenuant of markedAtenuants) {
+      atenuantString = `${atenuantString}\n* ${atenuant}`
+    }
+    return atenuantString;
+  }
+
   render() {
     const { totalSentence, totalFee, markedSentences, name, id, atenuantFee } = this.state;
     const maxSentence = 200;
     let sentenceCalculated = totalSentence >= maxSentence 
     ? Math.ceil(maxSentence * atenuantFee) 
     : Math.ceil(totalSentence * atenuantFee);
-    sentenceCalculated = sentenceCalculated < 0 ? 0 : sentenceCalculated;
+    sentenceCalculated = sentenceCalculated <= 1 ? 0 : sentenceCalculated;
     const sentences = this.arrayToString(markedSentences)
     const currency = totalFee.toLocaleString('pt-BR', {
       style: 'currency',
@@ -71,10 +87,11 @@ export default class App extends Component {
     const clipboard = `# INFORMAÇÕES DO PRESO:
 * NOME: ${name}
 * RG: ${id}\n
-# PENA TOTAL: ${sentenceCalculated} meses
+# PENA TOTAL: ${sentenceCalculated} meses (${Math.ceil(atenuantFee * 100)}%)
 # MULTA: ${currency}\n
 # CRIMES:
-${sentences}
+${sentences}\n
+${this.showAtenuants()}
 `;
 
     return (
