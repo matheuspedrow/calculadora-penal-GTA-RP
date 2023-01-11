@@ -84,6 +84,7 @@ export default class App extends Component {
       style: 'currency',
       currency: 'BRL',
     });
+
     const clipboard = `# INFORMAÇÕES DO PRESO:
 * NOME: ${name}
 * RG: ${id}\n

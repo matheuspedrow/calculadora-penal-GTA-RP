@@ -13,7 +13,7 @@ export default class InputData extends Component {
 							width: 300,
 							height: 40,
 							fontSize: '24px',
-							marginBottom: '10px'
+							padding: '0 10px',
 						}
 					}
           type="number"

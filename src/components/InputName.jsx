@@ -15,8 +15,6 @@ export default class InputData extends Component {
 							height: 40,
 							padding: '0 10px',
 							fontSize: '24px',
-							marginBottom: '10px'
-							
 						}
 					}
 					className="input-data"
